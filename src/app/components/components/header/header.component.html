@@ -1,0 +1,102 @@
+<header [class.shadow-2xl]="scrolled"
+        [class.bg-opacity-95]="scrolled"
+        class="sticky top-0 z-50 transition-all duration-300"
+        style="background:linear-gradient(90deg,#0a1628 0%,#1e3a8a 60%,#0e4f73 100%)">
+
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 sm:h-20">
+
+      <!-- Logo + Brand -->
+      <a routerLink="/" (click)="closeMenu()" class="flex items-center gap-3 group min-w-0">
+        <div class="relative flex-shrink-0">
+          <img src="../../../../assets/logo.webp" alt="KANISH Logo"
+               class="h-10 w-10 sm:h-12 sm:w-12 rounded-xl object-cover shadow-lg border-2 border-cyan-500 group-hover:border-amber-400 transition-colors duration-200" />
+          <span class="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-white animate-pulse"></span>
+        </div>
+        <div class="min-w-0">
+          <p class="text-sm sm:text-base md:text-lg font-black text-white group-hover:text-amber-400 transition-colors duration-200 leading-tight truncate">
+            KANISH WATER PROOFING
+          </p>
+          <p class="text-xs text-cyan-400 hidden sm:block font-medium">18+ Years · 10,000+ Projects</p>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-1 lg:gap-2">
+        <a routerLink="/" routerLinkActive="text-amber-400" [routerLinkActiveOptions]="{exact:true}"
+           class="text-white hover:text-amber-400 transition duration-200 font-semibold px-4 py-2 rounded-xl hover:bg-white/10 text-sm lg:text-base">
+          Home
+        </a>
+        <a routerLink="/services" routerLinkActive="text-amber-400"
+           class="text-white hover:text-amber-400 transition duration-200 font-semibold px-4 py-2 rounded-xl hover:bg-white/10 text-sm lg:text-base">
+          Services
+        </a>
+        <a href="tel:+919686508271"
+           class="text-white hover:text-green-300 transition duration-200 font-semibold px-4 py-2 rounded-xl hover:bg-white/10 text-sm lg:text-base hidden lg:flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+          </svg>
+          96865 08271
+        </a>
+        <a routerLink="/contact"
+           class="ml-2 bg-amber-400 hover:bg-amber-300 text-slate-900 font-extrabold px-5 py-2.5 rounded-xl transition duration-200 shadow-lg shadow-amber-500/25 text-sm lg:text-base">
+          Contact Us
+        </a>
+      </div>
+
+      <!-- Mobile: call button + hamburger -->
+      <div class="md:hidden flex items-center gap-2">
+        <a href="tel:+919686508271"
+           class="flex items-center justify-center w-10 h-10 bg-green-500 rounded-xl shadow-md hover:bg-green-400 transition">
+          <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+          </svg>
+        </a>
+        <button (click)="toggleMenu()" aria-label="Toggle menu"
+                class="flex items-center justify-center w-10 h-10 rounded-xl hover:bg-white/10 transition focus:outline-none focus:ring-2 focus:ring-amber-400">
+          <svg *ngIf="!menuOpen" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg *ngIf="menuOpen" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div *ngIf="menuOpen"
+       class="md:hidden border-t border-white/10 px-4 pb-5 pt-3 space-y-1"
+       style="background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 100%)">
+    <a routerLink="/" (click)="closeMenu()"
+       routerLinkActive="bg-white/10 text-amber-400" [routerLinkActiveOptions]="{exact:true}"
+       class="flex items-center gap-3 py-3 px-4 rounded-xl text-white font-semibold hover:bg-white/10 hover:text-amber-400 transition text-sm">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+      </svg>
+      Home
+    </a>
+    <a routerLink="/services" (click)="closeMenu()"
+       routerLinkActive="bg-white/10 text-amber-400"
+       class="flex items-center gap-3 py-3 px-4 rounded-xl text-white font-semibold hover:bg-white/10 hover:text-amber-400 transition text-sm">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+      </svg>
+      Services
+    </a>
+    <a routerLink="/contact" (click)="closeMenu()"
+       class="flex items-center justify-center gap-2 mt-3 w-full bg-amber-400 hover:bg-amber-300 text-slate-900 font-extrabold py-3.5 px-5 rounded-xl transition shadow-lg text-sm">
+      Contact Us
+    </a>
+    <div class="pt-3 border-t border-white/10 text-center">
+      <p class="text-xs text-slate-400">
+        📞 <a href="tel:+919686508271" class="text-cyan-400 font-semibold hover:text-amber-400 transition">96865 08271</a>
+        &nbsp;/&nbsp;
+        <a href="tel:+919148983072" class="text-cyan-400 font-semibold hover:text-amber-400 transition">91489 83072</a>
+      </p>
+    </div>
+  </div>
+
+</header>

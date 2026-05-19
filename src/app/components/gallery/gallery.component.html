@@ -1,0 +1,53 @@
+<div class="bg-gradient-to-br from-blue-50 via-white to-blue-100 py-16 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-extrabold relative inline-block">
+        <span class="relative z-10">
+          <span class="bg-gradient-to-r from-pink-500 via-yellow-400 to-red-500 bg-clip-text text-transparent animate-gradient-x">
+            Our Waterproofing Gallery
+          </span>
+          <span class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-pink-500/30 via-yellow-400/30 to-red-500/30 rounded-full"></span>
+        </span>
+      </h2>
+      <p class="mt-6 text-xl font-medium text-gray-600 max-w-2xl mx-auto">
+        Witness the <span class="font-semibold text-pink-600">stunning transformations</span> we've achieved through our expert waterproofing solutions
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <ng-container *ngFor="let img of images">
+        <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
+          <!-- Image with gradient overlay -->
+          <div class="relative h-80 overflow-hidden">
+            <img 
+              [src]="img.src" 
+              [alt]="img.alt" 
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+          </div>
+          
+          <!-- Content reveal on hover -->
+          <div class="absolute inset-0 flex flex-col justify-end p-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+            <!-- <h3 class="text-2xl font-bold mb-2 drop-shadow-lg">{{ img.title }}</h3> -->
+            <div class="flex items-center mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span class="text-sm font-medium text-white/90">{{ img.location }}</span>
+            </div>
+            <p class="text-white/90 mb-4 text-sm leading-relaxed">{{ img.description }}</p>
+            <div class="flex space-x-2">
+              <span *ngFor="let tag of img.tags" class="bg-white/20 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium">
+                {{ tag }}
+              </span>
+            </div>
+          </div>
+          
+          <!-- Always visible bottom info -->
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
